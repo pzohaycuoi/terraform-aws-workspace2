@@ -26,5 +26,5 @@ data "terraform_remote_state" "network" {
 
 module "namebeovpc" {
   source = "app.terraform.io/nambeotest/nambeoec2/aws"
-  subnet = data.terraform_remote_state.network.private_subnet
+  subnet = data.terraform_remote_state.network.public_subnet
 }
