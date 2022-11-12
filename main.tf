@@ -13,7 +13,7 @@ provider "aws" {
   region = var.region
 }
 
-data "terraform_remote_state" "network" {
+data "terraform_remote_state" "vpc" {
   backend = "remote"
 
   config = {
@@ -26,5 +26,5 @@ data "terraform_remote_state" "network" {
 
 module "namebeovpc" {
   source = "app.terraform.io/nambeotest/nambeoec2/aws"
-  subnet = data.terraform_remote_state.network.public_subnet
+  subnet = data.terraform_remote_state.vpc.outputs.public_subnet
 }
