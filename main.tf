@@ -26,5 +26,7 @@ data "terraform_remote_state" "vpc" {
 
 module "namebeovpc" {
   source = "app.terraform.io/nambeotest/nambeoec2/aws"
+  region = var.region
   subnet = data.terraform_remote_state.vpc.outputs.public_subnet
+  ec2_name = var.ec2_name
 }

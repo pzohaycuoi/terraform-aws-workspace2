@@ -1,0 +1,1 @@
+Workspace for provisioning ec2 resources 
